@@ -16,12 +16,28 @@ app.get("/", (req, res) => {
 });
 
 app.post("/register", async (req, res) => {
+    const file = fs.readFileSync("db.json", "utf-8");
+    let tmp = JSON.parse(file);
+    const hashedPassword = await bcrypt.hash(req.body.password, saltRounds);
+    tmp.users = [...tmp.users, { username: req.body.username, email: req.body.email, password: hashedPassword}];
+    fs.writeFileSync("db.json", JSON.stringify(tmp, null, 4));
     res.send('ty for register');
 })
 
 app.post("/login", (req, res) => {
-    console.log(req.body);
-    res.send('ty for login');
+    async function checkUser(username, password) {
+        const file = fs.readFileSync("db.json", "utf-8");
+        let tmp = JSON.parse(file);
+        const usr = tmp.users.filter(user => user.username === req.body.username)[0];
+        const match = await bcrypt.compare(password, usr.password);
+     //login?user=${usr.username}
+        if(match) {
+            res.send('ty for login');
+        }else {
+            res.send('no u');
+        }
+    }
+    checkUser(req.body.username, req.body.password)
 })
 
 

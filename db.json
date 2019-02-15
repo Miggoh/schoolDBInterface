@@ -1,8 +1,16 @@
 {
     "users": [
         {
-            "username": "ass",
+            "username": "test",
             "password": "$2b$10$qmcyRgTDDwDfK2pLYitoquDZ1X7Vt32raBqo/8.r4lKFl2LFNWbNi"
+        },
+        {
+            "username": "admin",
+            "password": "$2b$10$2qQcR4.8kanax8Uhbs3az.THHQQ0rAxeU9GbIi4tRCsj/3BrUChyy"
+        },
+        {
+            "username": "asd",
+            "password": "$2b$10$Ome6YOIIuxqRYVQijImpGumD/cErDTWwBafv9xxsfYbUEXwrlk04G"
         }
     ]
 }
