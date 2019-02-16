@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- This page exists solely to test cookie behavior-->
 <html>
     <head>
         <link rel="icon" type="image/png" href="/favicon.png" />
@@ -28,44 +29,18 @@
                 </div>
             </div>
         </nav>
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-5 col-xl-5 mx-auto">
-              <div class="card card-signin flex-row my-5">
-                <div class="card-body" id="card">
-                  <h5 class="card-title text-center">Register</h5>
-                  <form class="form-signin" method="POST" action="/register">
-                    <div class="form-label-group">
-                      <input type="text" id="inputUserame" class="form-control" placeholder="Username" name="username" required autofocus>
-                      <label for="inputUserame">Username</label>
+        <header class="masthead">
+            <div class="container h-100">
+                <div class="row h-100 align-items-center">
+                    <div class="col-12 text-center">
+                        <h1 class="font-weight-bold" id="error">404</h1>
+                        <p class="lead">There's nothing here. Look somewhere else?</p>
+                        <a href="/"><button class="btn btn-lg btn-primary text-uppercase" type="button">Back to main page</button></a>
                     </div>
-
-                    <hr>
-      
-                    <div class="form-label-group">
-                      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" name="email" required>
-                      <label for="inputEmail">Email address</label>
-                    </div>
-                    
-                    <hr>
-      
-                    <div class="form-label-group">
-                      <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required>
-                      <label for="inputPassword">Password</label>
-                    </div>
-                    <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>
-                    <a class="d-block text-center mt-2 small text-primary" id='swapper'>Sign In</a>  
-                  </form>
                 </div>
-              </div>
             </div>
-          </div>
-        </div>
+          </header>
         <footer id="sticky-footer" class="py-4 bg-primary fixed-bottom">
-            <div class="alert alert-light alert-dismissible fade show position-absolute text-center col-12" id="notice">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <strong>Notice:</strong> This site uses cookies. By continuing to browse the site, you are agreeing to our use of cookies. <a target="_blank" href="https://cookiesandyou.com/" class="alert-link">Find out more</a>.
-            </div>
             <div class="container text-center">
               <a href="https://github.com/Miggoh/userRegisterTest" class="nounderline text-white-50" target="_blank"><small>Github</small></a>
             </div>
@@ -76,6 +51,5 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <link rel="stylesheet" type="text/css" href="style.css">
-        <script src="client.js"></script>
     </body>
 </html>

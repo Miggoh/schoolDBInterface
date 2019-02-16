@@ -1,16 +1,14 @@
 {
     "users": [
         {
-            "username": "test",
-            "password": "$2b$10$qmcyRgTDDwDfK2pLYitoquDZ1X7Vt32raBqo/8.r4lKFl2LFNWbNi"
-        },
-        {
             "username": "admin",
-            "password": "$2b$10$2qQcR4.8kanax8Uhbs3az.THHQQ0rAxeU9GbIi4tRCsj/3BrUChyy"
+            "email": "admin@admin.com",
+            "password": "$2b$10$6weOwVdzk3PDR1VBRrsYTuQNKXz3j.YBGDR4PDuocbUcyxEsrL/WS"
         },
         {
-            "username": "asd",
-            "password": "$2b$10$Ome6YOIIuxqRYVQijImpGumD/cErDTWwBafv9xxsfYbUEXwrlk04G"
+            "username": "console.log('asd')",
+            "email": "asd@asd.com",
+            "password": "$2b$10$uZE0pfqdT0GD9DiRVQDPdejkSts5gtgD2EtOF.aoGOBocnnkNaLVi"
         }
     ]
 }

@@ -18,10 +18,11 @@ app.get("/", (req, res) => {
 app.post("/register", async (req, res) => {
     const file = fs.readFileSync("db.json", "utf-8");
     let tmp = JSON.parse(file);
+    console.log(req.body);
     const hashedPassword = await bcrypt.hash(req.body.password, saltRounds);
     tmp.users = [...tmp.users, { username: req.body.username, email: req.body.email, password: hashedPassword}];
     fs.writeFileSync("db.json", JSON.stringify(tmp, null, 4));
-    res.send('ty for register');
+    res.render('registered.ejs');
 })
 
 app.post("/login", (req, res) => {
@@ -32,13 +33,17 @@ app.post("/login", (req, res) => {
         const match = await bcrypt.compare(password, usr.password);
      //login?user=${usr.username}
         if(match) {
-            res.send('ty for login');
+            res.render("logged.ejs");
         }else {
             res.send('no u');
         }
     }
     checkUser(req.body.username, req.body.password)
 })
+
+app.get('*', function(req, res){
+    res.status(404).render('404.ejs');
+  });
 
 
 
