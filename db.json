@@ -6,9 +6,9 @@
             "password": "$2b$10$6weOwVdzk3PDR1VBRrsYTuQNKXz3j.YBGDR4PDuocbUcyxEsrL/WS"
         },
         {
-            "username": "console.log('asd')",
-            "email": "asd@asd.com",
-            "password": "$2b$10$uZE0pfqdT0GD9DiRVQDPdejkSts5gtgD2EtOF.aoGOBocnnkNaLVi"
+            "username": "test",
+            "email": "test@test.com",
+            "password": "$2b$10$3sSj93sEkfszEcE41az9WepsgOAdg1AFQFPHiWSmM6Ddn/rbzIvXa"
         }
     ]
 }
