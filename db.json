@@ -4,6 +4,11 @@
             "username": "admin",
             "email": "admin@admin.com",
             "password": "$2b$10$6weOwVdzk3PDR1VBRrsYTuQNKXz3j.YBGDR4PDuocbUcyxEsrL/WS"
+        },
+        {
+            "username": "test",
+            "email": "test@test.com",
+            "password": "$2b$10$XEEuXhuPoA3tLyEzy9gIJubON.YD6JAgeKFpg0Tt0I2AdXK0s/HUu"
         }
     ]
 }

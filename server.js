@@ -61,7 +61,12 @@ app.post("/login", (req, res) => {
 app.get("/profile", (req, res) => {
     console.log(req.session)
     res.render('profile.ejs', req.session);
-})
+});
+
+app.get("/logout", (req, res) => {
+    req.session.destroy();
+    res.render('index.ejs');
+});
 
 app.get('*', function(req, res){
     res.status(404).render('404.ejs');
