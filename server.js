@@ -47,9 +47,8 @@ app.post("/login", (req, res) => {
         const usr = tmp.users.filter(user => user.username === req.body.username)[0];
         const match = await bcrypt.compare(password, usr.password);
         if(match) {
-            req.session.cookie.secure = true;
-            req.session.cookie.username = usr.username;
-            req.session.cookie.email = usr.email;
+            req.session.username = usr.username;
+            req.session.email = usr.email;
             console.log(req.session);
             res.render("logged.ejs");
         }else {
@@ -59,7 +58,7 @@ app.post("/login", (req, res) => {
     checkUser(req.body.username, req.body.password)
 })
 
-app.post("/profile", (req, res) => {
+app.get("/profile", (req, res) => {
     console.log(req.session)
     res.render('profile.ejs', req.session);
 })
