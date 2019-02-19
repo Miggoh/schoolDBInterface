@@ -2,7 +2,7 @@ const card = document.getElementById('card');
 const swapper = document.getElementById('swapper');
                 
 swapper.addEventListener('click', function(){ card.innerHTML = 
-                `<h5 class="card-title text-center">Welcome Back!</h5>
+                `<h5 class="card-title text-center">Welcome back!</h5>
                   <form class="form-signin" method="POST" action="/login">
                     <div class="form-label-group">
                       <input type="text" id="inputUserame" class="form-control" placeholder="Username" name="username" required autofocus>

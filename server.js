@@ -20,9 +20,19 @@ app.use(session({
     },
     store: new fileStore(),
     secret: '-G1jZuu+WkmC0',
-    resave: true,
+    resave: false,
     saveUninitialized: true,
+    rolling: true,
   }));
+
+//Custom middleware for handling login-requirement
+app.use("/profile", (req, res, next) => {
+    if (req.session.username) {
+        next();
+    } else {
+        res.render('notlogged.ejs');
+    }
+});
 
 
 
@@ -33,7 +43,7 @@ app.get("/", (req, res) => {
 app.post("/register", async (req, res) => {
     const file = fs.readFileSync("db.json", "utf-8");
     let tmp = JSON.parse(file);
-    console.log(req.body);
+    //console.log(req.body);
     const hashedPassword = await bcrypt.hash(req.body.password, saltRounds);
     tmp.users = [...tmp.users, { username: req.body.username, email: req.body.email, password: hashedPassword}];
     fs.writeFileSync("db.json", JSON.stringify(tmp, null, 4));
@@ -44,7 +54,8 @@ app.post("/login", (req, res) => {
     async function checkUser(username, password) {
         const file = fs.readFileSync("db.json", "utf-8");
         let tmp = JSON.parse(file);
-        const usr = tmp.users.filter(user => user.username === req.body.username)[0];
+    try {
+        const usr = tmp.users.find(user => req.body.username === user.username);
         const match = await bcrypt.compare(password, usr.password);
         if(match) {
             req.session.username = usr.username;
@@ -52,20 +63,31 @@ app.post("/login", (req, res) => {
             console.log(req.session);
             res.render("logged.ejs");
         }else {
-            res.send('no u');
+            res.render('notlogged.ejs');
         }
     }
+    catch (err) {
+        res.render('notlogged.ejs')
+    }};
     checkUser(req.body.username, req.body.password)
-})
+});
 
 app.get("/profile", (req, res) => {
-    console.log(req.session)
+    //console.log(req.session)
     res.render('profile.ejs', req.session);
 });
 
 app.get("/logout", (req, res) => {
     req.session.destroy();
     res.render('index.ejs');
+});
+
+app.get("/profile/message", (req, res) => {
+    res.render('message.ejs');
+});
+
+app.get("/profile/enroll", (req, res) => {
+    res.render('enroll.ejs')
 });
 
 app.get('*', function(req, res){

@@ -1,7 +1,5 @@
 /* Nav bar */
 
-/* Change this breakpoint if you change the breakpoint of the navbar */
-
 @media (min-width: 992px) {
   .animate {
     animation-duration: 0.3s;
@@ -60,9 +58,17 @@ html {
   
   body {
     height: 100%;
-    background: linear-gradient(to bottom, #94c4f7, rgb(255, 255, 255));
+    background: linear-gradient(to bottom, #94c4f7, rgb(255, 255, 255)),
   }
   
+  #main {
+    background-image: url("book_lover.svg");
+    background-position: left;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: 50rem 50rem;
+  }
+
   .card-signin {
     border: 0;
     border-radius: 1rem;
@@ -179,8 +185,61 @@ html {
   min-height: 500px;
 }
 
+#logged {
+  background-image: url('confirmation.svg');
+  background-position: right;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: 50rem 50rem;
+}
+
+ /* Registered */
+
+ #registered {
+  background-image: url('balloons.svg');
+  background-position: right;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: 50rem 50rem;
+ }
+
 /* 404 */
 
  #error {
-   font-size: 300px;
+    background-image: url('page_not_found.svg');
+    background-position: top;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: 50rem 50rem;
+ }
+
+ /* Login error */
+
+ #credentials {
+  background-image: url('authentication.svg');
+  background-position: right;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: 50rem 50rem;
+}
+
+
+ /* Profile*/
+
+ #profile {
+    background-image: url('studying.svg');
+    background-position: right;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: 50rem 50rem;
+ }
+
+ /* message */
+
+ #message {
+  background-image: url('teacher.svg');
+  background-position: left;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: 50rem 50rem;
  }

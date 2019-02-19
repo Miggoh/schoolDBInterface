@@ -4,7 +4,7 @@
         <link rel="icon" type="image/png" href="/favicon.png" />
         <title>User Register Test</title>
     </head>
-    <body>
+    <body id="profile">
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
                 <a class="navbar-brand" href="/">User Register Test</a>
@@ -21,7 +21,7 @@
                             <div class="dropdown-menu dropdown-menu-right animate slideIn" aria-labelledby="navbarDropdown">
                               <a class="dropdown-item" href="/profile">Profile</a>
                               <div class="dropdown-divider"></div>
-                              <a class="dropdown-item" href="#">Logout</a>
+                              <a class="dropdown-item" href="logout">Logout</a>
                             </div>
                         </li>
                     </ul>
@@ -29,16 +29,25 @@
             </div>
         </nav>
         <body>
-            <div class="container">
+            <div class="container w-50 float-left ml-5">
                 <div class="card border-0 shadow my-5">
                   <div class="card-body p-5">
                     <h1 class="font-weight-light"><%= username %>'s profile</h1>
                     <hr>
                     <p class="lead">This is your personal profile. Only you can see this page.</p>
                     <p class="lead">Your e-mail address is: <%= email %></p>
-                    <div style="height: 20rem"></div>
+                    <hr>
+                    <h4 class="font-weight-light">Profile actions:</h4>
+                    <div style="height: 2rem"></div>
+                    <button type="button" class="btn btn-primary btn-xl">Enroll on a course</button>
+                    <a href="/profile/message"><button type="button" class="btn btn-primary btn-xl">Send a message to a teacher</button></a>
+                    <hr>
+                    <h4 class="font-weight-light">Your courses:</h4>
+                    <div style="height: 2rem"></div>
+                    <p class="lead">You haven't signed up for any courses yet!</p>
+                    <div style="height: 5rem"></div>
                     <p class="lead mb-2">Want to delete your profile?</p>
-                    <button type="button" class="btn btn-danger btn-s">delete</button>
+                    <button type="button" class="btn btn-danger btn-s">Delete</button>
                   </div>
                 </div>
               </div>
