@@ -4,56 +4,43 @@
         <link rel="icon" type="image/png" href="/favicon.png" />
         <title>User Register Test</title>
     </head>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-            <div class="container">
-                <a class="navbar-brand" href="/">User Register Test</a>
-                <button class="navbar-toggler dropdown-toggle" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Navigation
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right animate slideIn" aria-labelledby="navbarDropdown">
-                              <a class="dropdown-item" href="/profile">Profile</a>
-                              <div class="dropdown-divider"></div>
-                              <a class="dropdown-item" href="/logout">Logout</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+    <% include ../partials/nav %>
         <body id="message">
             <div class="container w-50 float-right mr-5">
                 <div class="card border-0 shadow my-5">
                   <div class="card-body p-5">
-                    <h1 class="font-weight-light">Message a teacher:</h1>
-                    <hr>
-                    <form method="POST" action="sender">
-                        <input type="text">
-                        <textarea></textarea>
-                        <button class="btn-primary"><i class="fas fa-paper-plane"></i> Send message!</button>
-                    </form>
+                        <h1 class="card-title text-center font-weight-light">Message a teacher</h1>
+                        <hr>
+                        <form class="form-signin" method="POST" action="/register">
+                          <div class="form-label-group">
+                                <p class="lead">Teacher's name:</p>
+                                <select id="teacher" name="teacher" class="form-control" size="1" required>
+                                    <option selected disabled hidden>Choose...</option>
+                                    <option value="volvo">Volvo</option>
+                                    <option value="saab">Saab</option>
+                                    <option value="fiat">Fiat</option>        
+                                    <option value="audi">Audi</option>
+                                </select>
+                          </div>
+                          <hr>
+                          <div class="form-label-group">
+                            <input type="text" id="subject" class="form-control" name="subject" placeholder="Subject" required>
+                            <label for="subject">Subject</label>
+                          </div>
+                          
+                          <hr>
+            
+                          <div class="form-label-group">
+                            <textarea id="messagetext" class="form-control" name="message" rows="10" placeholder="Message" required></textarea>
+                            <label for="messagetext">Message</label>
+
+                          </div>
+                          <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit"><i class="fas fa-paper-plane"></i> Send message</button>
+                        </form>
                   </div>
                 </div>
               </div>
         </body>
-        <footer id="sticky-footer" class="py-4 bg-primary fixed-bottom">
-            <div class="alert alert-light alert-dismissible fade show position-absolute text-center col-12" id="notice">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <strong>Notice:</strong> This site uses cookies. By continuing to browse the site, you are agreeing to our use of cookies. <a target="_blank" href="https://cookiesandyou.com/" class="alert-link">Find out more</a>.
-            </div>
-            <div class="container text-center">
-              <a href="https://github.com/Miggoh/userRegisterTest" class="nounderline text-white-50" target="_blank"><small>Github</small></a>
-            </div>
-        </footer>
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
-        <link rel="stylesheet" type="text/css" href="/style.css">
+        <% include ../partials/footer %>
     </body>
 </html>
