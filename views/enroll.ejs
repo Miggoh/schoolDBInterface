@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="icon" type="image/png" href="/favicon.png" />
+        <title>User Register Test</title>
+    </head>
+        <% include ../partials/nav %>
+            <body id="enroll">
+            <div class="container w-50 float-right mr-5">
+                <div class="card border-0 shadow my-5">
+                  <div class="card-body p-5">
+                    <h1 class="card-title text-center font-weight-light">Enroll on a course</h1>
+                        <form method="GET" action="/profile">
+                        <hr>
+                        <p class="lead">Select the courses you want to apply for. You must select one course per subject.</p>
+                        <div class="form-check">
+                            <p class="lead">Literature and Language</p>
+                            <input class="form-check-input" type="radio" name="lit" id="klingon" value="klingon" checked>
+                            <label class="form-check-label" for="klingon">
+                                Invented Languages: Klingon and Beyond
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="lit" id="zombie" value="zombie">
+                            <label class="form-check-label" for="zombie">
+                                The Living and UnDead: An Inquiry into Zombies in Cinema and Literature
+                            </label>
+                          </div>
+                          <div class="form-check disabled">
+                            <input class="form-check-input" type="radio" name="lit" id="russia" value="russia">
+                            <label class="form-check-label" for="russia">
+                                The Adultery Novel In and Out of Russia
+                            </label>
+                          </div>
+                          <br>
+                          <div class="form-check">
+                            <p class="lead">Technology</p>
+                            <input class="form-check-input" type="radio" name="tech" id="computer" value="computer" checked>
+                            <label class="form-check-label" for="computer">
+                                The Anthropology of Computing
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="tech" id="street" value="street">
+                            <label class="form-check-label" for="street">
+                                Street-Fighting Mathematics
+                            </label>
+                          </div>
+                          <div class="form-check disabled">
+                            <input class="form-check-input" type="radio" name="tech" id="lego" value="lego" disabled>
+                            <label class="form-check-label" for="lego">
+                                    Lego Robotics - FULL
+                            </label>
+                          </div>
+                          <br>
+                          <div class="form-check">
+                            <p class="lead">Sociology, Psychology and Anthropology</p>
+                            <input class="form-check-input" type="radio" name="psych" id="startrek" value="startrek" checked>
+                            <label class="form-check-label" for="startrek">
+                                Star Trek and Religion
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="psych" id="marx" value="marx">
+                            <label class="form-check-label" for="marx">
+                                Taking Marx Seriously
+                            </label>
+                          </div>
+                          <div class="form-check disabled">
+                            <input class="form-check-input" type="radio" name="psych" id="ufo" value="ufo">
+                            <label class="form-check-label" for="ufo">
+                                UFOs In American Society
+                            </label>
+                            <hr>
+                            <p class="lead">You can change your choices during the application period.</p>
+                            <button class="btn btn-s btn-primary text-uppercase" type="submit">Confirm selection</button>
+                          </div>
+                        </form>
+                  </div>
+                </div>
+              </div>
+        <% include ../partials/footer %>
+    </body>
+</html>

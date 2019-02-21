@@ -254,3 +254,13 @@ html {
   background-repeat: no-repeat;
   background-size: 50rem 50rem;
  }
+
+ /* enroll */
+ 
+ #enroll {
+  background-image: url('exams.svg');
+  background-position: left;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: 50rem 50rem;
+ }

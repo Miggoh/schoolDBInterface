@@ -11,15 +11,15 @@
                   <div class="card-body p-5">
                         <h1 class="card-title text-center font-weight-light">Message a teacher</h1>
                         <hr>
-                        <form class="form-signin" method="POST" action="/register">
+                        <form class="form-signin" method="GET" action="/profile">
                           <div class="form-label-group">
                                 <p class="lead">Teacher's name:</p>
-                                <select id="teacher" name="teacher" class="form-control" size="1" required>
+                                <select id="teacher" name="teacher" class="form-control selectpicker" size="1" required>
                                     <option selected disabled hidden>Choose...</option>
-                                    <option value="volvo">Volvo</option>
-                                    <option value="saab">Saab</option>
-                                    <option value="fiat">Fiat</option>        
-                                    <option value="audi">Audi</option>
+                                    <option value="Lansdale">Mr. Gage Lansdale</option>
+                                    <option value="Srinvasan">Mr. Omar Srinvasan</option>
+                                    <option value="Vonfelden">Mrs. Leila Vonfelden</option>        
+                                    <option value="Martischnig">Mrs. Emilia Martischnig</option>
                                 </select>
                           </div>
                           <hr>
@@ -40,7 +40,6 @@
                   </div>
                 </div>
               </div>
-        </body>
         <% include ../partials/footer %>
     </body>
 </html>
