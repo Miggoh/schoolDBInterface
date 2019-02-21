@@ -5,11 +5,16 @@ const bcrypt = require('bcrypt');
 const fs = require('fs');
 const uuid = require('uuid/v4');
 const session = require('express-session');
-const fileStore = require('session-file-store')(session);
+var MongoClient = require('mongodb').MongoClient
+const MongoDBStore = require('connect-mongodb-session')(session);
 
 const saltRounds = 10;
 
 const PORT = 5000;
+const store = new MongoDBStore({
+    uri: 'mongodb://localhost:27017/connect_mongodb_session_test',
+    collection: 'studentData'
+  });
 
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -18,7 +23,7 @@ app.use(session({
       console.log('Session: ' + req.sessionID);
       return uuid();
     },
-    store: new fileStore(),
+    store: store,
     secret: '-G1jZuu+WkmC0',
     resave: false,
     saveUninitialized: true,
