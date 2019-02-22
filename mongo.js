@@ -1,11 +1,8 @@
-MongoClient.connect('mongodb://localhost:27017/schoolDB', function (err, client) {
-  if (err) throw err
-
-  var db = client.db('schoolDB')
-  
-  db.collection('studentData').find().toArray(function (err, result) {
-    if (err) throw err
-
-    console.log(result)
-  })
-})
+const MongoClient = require('mongodb').MongoClient;
+const uri = "mongodb+srv://kay:myRealPassword@cluster0.mongodb.net/admin";
+const client = new MongoClient(uri, { useNewUrlParser: true });
+client.connect(err => {
+  const collection = client.db("test").collection("devices");
+ // perform actions on the collection object
+  client.close();
+});

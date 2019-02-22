@@ -6,25 +6,27 @@
     </head>
     <body id="profile">
         <% include ../partials/nav %>
+        <% include ../partials/delete %>
             <div class="container w-50 float-left ml-5">
                 <div class="card border-0 shadow my-5">
                   <div class="card-body p-5">
                     <h1 class="font-weight-light"><%= username %>'s profile</h1>
                     <hr>
                     <p class="lead">This is your personal profile. Only you can see this page.</p>
-                    <p class="lead">Your e-mail address is: <%= email %></p><button type="button" class="btn btn-primary btn-s mb-2">Update e-mail</button>
+                    <p class="lead">Your e-mail address is: <%= email %></p><button type="button" class="btn btn-primary btn-s ml-2 mb-2">Update e-mail</button>
                     <hr>
                     <h4 class="font-weight-light">Profile actions:</h4>
-                    <div style="height: 2rem"></div>
-                    <a href="/profile/enroll"><button type="button" class="btn btn-primary btn-xl mb-2">Enroll on a course</button></a>
-                    <a href="/profile/message"><button type="button" class="btn btn-primary btn-xl mb-2">Send a message to a teacher</button></a>
+                    <a href="/profile/enroll"><button type="button" class="btn btn-primary btn-xl m-2">Enroll on a course</button></a>
+                    <a href="/profile/message"><button type="button" class="btn btn-primary btn-xl m-2">Send a message to a teacher</button></a>
                     <hr>
                     <h4 class="font-weight-light">Your courses:</h4>
-                    <div style="height: 2rem"></div>
-                    <p class="lead">You haven't signed up for any courses yet!</p>
-                    <div style="height: 2rem"></div>
+                    <div style="height: 1rem"></div>
+                    <% for(var i = 0; i < courses.length; i++) { %>
+                      <p class="lead"><%= courses[i] %></p>
+                     <% } %>
+                    <div style="height: 1rem"></div>
                     <p class="lead mb-2">Want to delete your profile?</p>
-                    <button type="button" class="btn btn-danger btn-s">Delete</button>
+                    <button type="button" class="btn btn-danger btn-s" data-toggle="modal" data-target="#deleteModal">Delete</button>
                   </div>
                 </div>
               </div>
