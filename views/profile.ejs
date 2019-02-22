@@ -7,13 +7,14 @@
     <body id="profile">
         <% include ../partials/nav %>
         <% include ../partials/delete %>
+        <% include ../partials/email %>
             <div class="container w-50 float-left ml-5">
                 <div class="card border-0 shadow my-5">
                   <div class="card-body p-5">
                     <h1 class="font-weight-light"><%= username %>'s profile</h1>
                     <hr>
                     <p class="lead">This is your personal profile. Only you can see this page.</p>
-                    <p class="lead">Your e-mail address is: <%= email %></p><button type="button" class="btn btn-primary btn-s ml-2 mb-2">Update e-mail</button>
+                    <p class="lead">Your e-mail address is: <%= email %></p><button type="button" data-toggle="modal" data-target="#emailModal" class="btn btn-primary btn-s ml-2 mb-2">Update e-mail</button>
                     <hr>
                     <h4 class="font-weight-light">Profile actions:</h4>
                     <a href="/profile/enroll"><button type="button" class="btn btn-primary btn-xl m-2">Enroll on a course</button></a>
@@ -21,11 +22,13 @@
                     <hr>
                     <h4 class="font-weight-light">Your courses:</h4>
                     <div style="height: 1rem"></div>
+                    <ul class="list-group">
                     <% for(var i = 0; i < courses.length; i++) { %>
-                      <p class="lead"><%= courses[i] %></p>
+                      <li class="list-group-item list-group-item-light"><%= courses[i] %></li>
                      <% } %>
+                    </ul>
                     <div style="height: 1rem"></div>
-                    <p class="lead mb-2">Want to delete your profile?</p>
+                    <p class="lead mb-2">Want to delete your account?</p>
                     <button type="button" class="btn btn-danger btn-s" data-toggle="modal" data-target="#deleteModal">Delete</button>
                   </div>
                 </div>

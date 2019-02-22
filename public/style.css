@@ -62,7 +62,7 @@ html {
   }
   
   #main {
-    background-image: url("book_lover.svg");
+    background-image: url("/images/book_lover.svg");
     background-position: left;
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -197,7 +197,7 @@ html {
 }
 
 #logged {
-  background-image: url('confirmation.svg');
+  background-image: url('/images/confirmation.svg');
   background-position: right;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -207,7 +207,7 @@ html {
  /* Registered */
 
  #registered {
-  background-image: url('balloons.svg');
+  background-image: url('/images/balloons.svg');
   background-position: right;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -217,7 +217,7 @@ html {
 /* 404 */
 
  #error {
-    background-image: url('page_not_found.svg');
+    background-image: url('/images/page_not_found.svg');
     background-position: top;
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -227,7 +227,7 @@ html {
  /* Login error */
 
  #credentials {
-  background-image: url('authentication.svg');
+  background-image: url('/images/authentication.svg');
   background-position: right;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -238,7 +238,7 @@ html {
  /* Profile*/
 
  #profile {
-    background-image: url('studying.svg');
+    background-image: url('/images/studying.svg');
     background-position: right;
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -248,7 +248,7 @@ html {
  /* message */
 
  #message {
-  background-image: url('teacher.svg');
+  background-image: url('/images/teacher.svg');
   background-position: left;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -258,7 +258,7 @@ html {
  /* enroll */
  
  #enroll {
-  background-image: url('exams.svg');
+  background-image: url('/images/exams.svg');
   background-position: left;
   background-attachment: fixed;
   background-repeat: no-repeat;

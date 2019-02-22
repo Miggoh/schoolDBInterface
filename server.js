@@ -8,7 +8,7 @@ const session = require('express-session'); //Session library
 const mongoose = require('mongoose'); //MongoDB onject modeling
 const MongoDBStore = require('connect-mongodb-session')(session); //Stores sessions to database
 const Schema = mongoose.Schema;
-const uri = "removed from git"; //Connection url for database
+const uri = "removed from github"; //Connection url for database
 const options = {
     dbName: "schoolDB",
     useNewUrlParser: true,
@@ -77,13 +77,13 @@ app.get("/", (req, res) => {
 app.post("/register", async (req, res) => {
     const hashedPassword = await bcrypt.hash(req.body.password, saltRounds);
     await mongoose.connect(uri, options)
-    .then(async () => { await user.findOne( { "username": req.body.username }, "username", function (err, response) {
+    .then(async () => { await user.findOne( { "username": req.body.username.toLowerCase() }, "username", function (err, response) {
         if (response) { res.render('notlogged.ejs') }
         else {
             user.create( {
-                username: req.body.username,
+                username: req.body.username.toLowerCase(),
                 password: hashedPassword,
-                email: req.body.email,
+                email: req.body.email.toLowerCase(),
                 courses: ["You haven't signed up for any courses yet!"]        
             });
             res.render('registered.ejs');
@@ -96,7 +96,7 @@ app.post("/register", async (req, res) => {
 app.post("/login", (req, res) => {
     const checkUser = async (body) => {
         await mongoose.connect(uri, options)
-        .then(async () => { await user.findOne( { "username": req.body.username }, "username password email courses", function (err, user) {
+        .then(async () => { await user.findOne( { "username": req.body.username.toLowerCase() }, "username password email courses", function (err, user) {
                 if (err) console.log(err);
                 if (user) {
                 const match = bcrypt.compare(req.body.password, user.password);
@@ -136,9 +136,40 @@ app.get("/logout", (req, res) => {
 app.get("/profile/message", (req, res) => {
     res.render('message.ejs');
 });
+
+app.post("/delete", async (req, res) => {
+    await mongoose.connect(uri, options)
+    .then(async () => { await user.deleteOne({ username: req.session.username }, function(err) {
+        if (!err) {
+            res.redirect('/logout');
+        }
+        else {
+            res.redirect('/profile');
+        }
+    });
+    });
+});
+
+app.post("/email", async (req, res) => {
+    await mongoose.connect(uri, options)
+    .then(async () => { await user.findOne({ username: req.session.username }, function(err, user) {
+        if (!err) {
+            user.email = req.body.email;
+            user.save();
+            req.session.email = req.body.email;
+            res.redirect('/profile');
+        }
+        else {
+            res.redirect('/profile');
+        }
+    });
+    });
+});
+
 app.get("/profile/enroll", (req, res) => {
     res.render('enroll.ejs')
 });
+
 app.post("/enroll", async (req, res) => {
     //console.log(req.body);
     await mongoose.connect(uri, options)
