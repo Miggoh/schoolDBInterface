@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <link rel="icon" type="image/png" href="/favicon.png" />
-        <title>User Register Test</title>
-    </head>
+<% include ../partials/head %>
         <% include ../partials/nav %>
             <body id="enroll">
             <div class="container w-50 float-right mr-5">
@@ -13,68 +8,38 @@
                         <form method="POST" action="/enroll">
                         <hr>
                         <p class="lead">Select the courses you want to apply for. You must select one course per subject.</p>
-                        <div class="form-check">
-                            <p class="lead">Literature and Language</p>
-                            <input class="form-check-input" type="radio" name="lit" id="klingon" value="Invented Languages: Klingon and Beyond" checked>
-                            <label class="form-check-label" for="klingon">
-                                Invented Languages: Klingon and Beyond
-                            </label>
-                          </div>
+                        <p class="lead pl-4">Literature and Language</p>
+                        <% for(let i = 0; i < lit.length; i++) { %>
                           <div class="form-check">
-                            <input class="form-check-input" type="radio" name="lit" id="zombie" value="The Living and UnDead: An Inquiry into Zombies in Cinema and Literature">
-                            <label class="form-check-label" for="zombie">
-                                The Living and UnDead: An Inquiry into Zombies in Cinema and Literature
+                            <input class="form-check-input" type="radio" name="lit" id="<%= lit[i] %>" value="<%= lit[i] %>">
+                            <label class="form-check-label" for="<%= lit[i] %>">
+                              <%= lit[i] %>
                             </label>
                           </div>
-                          <div class="form-check disabled">
-                            <input class="form-check-input" type="radio" name="lit" id="russia" value="The Adultery Novel In and Out of Russia">
-                            <label class="form-check-label" for="russia">
-                                The Adultery Novel In and Out of Russia
-                            </label>
-                          </div>
+                        <% } %>
                           <br>
+                        <p class="lead pl-4">Technology</p>
+                        <% for(let i = 0; i < tech.length; i++) { %>
                           <div class="form-check">
-                            <p class="lead">Technology</p>
-                            <input class="form-check-input" type="radio" name="tech" id="computer" value="The Anthropology of Computing" checked>
-                            <label class="form-check-label" for="computer">
-                                The Anthropology of Computing
+                            <input class="form-check-input" type="radio" name="tech" id="<%= tech[i] %>" value="<%= tech[i] %>">
+                            <label class="form-check-label" for="<%= tech[i] %>">
+                              <%= tech[i] %>
                             </label>
                           </div>
-                          <div class="form-check">
-                            <input class="form-check-input" type="radio" name="tech" id="street" value="Street-Fighting Mathematics">
-                            <label class="form-check-label" for="street">
-                                Street-Fighting Mathematics
-                            </label>
-                          </div>
-                          <div class="form-check disabled">
-                            <input class="form-check-input" type="radio" name="tech" id="lego" value="Lego Robotics" disabled>
-                            <label class="form-check-label" for="lego">
-                                    Lego Robotics - FULL
-                            </label>
-                          </div>
+                        <% } %>
                           <br>
-                          <div class="form-check">
-                            <p class="lead">Sociology, Psychology and Anthropology</p>
-                            <input class="form-check-input" type="radio" name="psych" id="startrek" value="Star Trek and Religion" checked>
-                            <label class="form-check-label" for="startrek">
-                                Star Trek and Religion
-                            </label>
-                          </div>
-                          <div class="form-check">
-                            <input class="form-check-input" type="radio" name="psych" id="marx" value="Taking Marx Seriously">
-                            <label class="form-check-label" for="marx">
-                                Taking Marx Seriously
-                            </label>
-                          </div>
-                          <div class="form-check disabled">
-                            <input class="form-check-input" type="radio" name="psych" id="ufo" value="UFOs In American Society">
-                            <label class="form-check-label" for="ufo">
-                                UFOs In American Society
-                            </label>
+                        <p class="lead pl-4">Sociology, Psychology and Anthropology</p>
+                        <% for(let i = 0; i < psych.length; i++) { %>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="psych" id="<%= psych[i] %>" value="<%= psych[i] %>">
+                              <label class="form-check-label" for="<%= psych[i] %>">
+                                <%= psych[i] %>
+                              </label>
+                            </div>
+                        <% } %>
                             <hr>
                             <p class="lead">You can change your choices during the application period.</p>
                             <button class="btn btn-s btn-primary text-uppercase" type="submit">Confirm selection</button>
-                          </div>
                         </form>
                   </div>
                 </div>

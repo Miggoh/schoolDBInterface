@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <link rel="icon" type="image/png" href="/favicon.png" />
-        <title>User Register Test</title>
-    </head>
+<% include ../partials/head %>
     <body id="profile">
         <% include ../partials/nav %>
         <% include ../partials/delete %>
@@ -23,7 +18,7 @@
                     <h4 class="font-weight-light">Your courses:</h4>
                     <div style="height: 1rem"></div>
                     <ul class="list-group">
-                    <% for(var i = 0; i < courses.length; i++) { %>
+                    <% for(let i = 0; i < courses.length; i++) { %>
                       <li class="list-group-item list-group-item-light"><%= courses[i] %></li>
                      <% } %>
                     </ul>

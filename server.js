@@ -9,12 +9,12 @@ const mongoose = require('mongoose'); //MongoDB onject modeling
 const MongoDBStore = require('connect-mongodb-session')(session); //Stores sessions to database
 const Schema = mongoose.Schema;
 const uri = "removed from github"; //Connection url for database
-const options = {
+const options = { //arguments for Mongoose connection
     dbName: "schoolDB",
     useNewUrlParser: true,
-}
+};
 
-//Mongoose Schema:
+//Mongoose Schemas:
 const userSchema = new Schema({
     username: String,
     password: String,
@@ -22,6 +22,13 @@ const userSchema = new Schema({
     courses: Array,
 }, { collection: "studentData" });
 const user = mongoose.model('user', userSchema);
+
+const courseSchema = new Schema({
+    lit: Array,
+    tech: Array,
+    psych: Array,
+}, { collection: "studentData" });
+const courseList = mongoose.model('course', courseSchema);
 
 //Salt setting for bcrypt:
 const saltRounds = 10;
@@ -69,15 +76,17 @@ app.use("/profile", (req, res, next) => {
 
 //GET main page:
 app.get("/", (req, res) => {
-    //console.log(req.session);
-    res.render("index.ejs");
+    if (req.session.username) {
+        res.redirect("/profile")
+    } else {
+        res.render("index.ejs");
+    }
 });
 
 //User registers on main page:
 app.post("/register", async (req, res) => {
     const hashedPassword = await bcrypt.hash(req.body.password, saltRounds);
-    await mongoose.connect(uri, options)
-    .then(async () => { await user.findOne( { "username": req.body.username.toLowerCase() }, "username", function (err, response) {
+    await user.findOne( { "username": req.body.username.toLowerCase() }, "username", function (err, response) {
         if (response) { res.render('notlogged.ejs') }
         else {
             user.create( {
@@ -90,30 +99,27 @@ app.post("/register", async (req, res) => {
             }
         });
     });
-});
 
 //User logs in:
 app.post("/login", (req, res) => {
     const checkUser = async (body) => {
-        await mongoose.connect(uri, options)
-        .then(async () => { await user.findOne( { "username": req.body.username.toLowerCase() }, "username password email courses", function (err, user) {
-                if (err) console.log(err);
-                if (user) {
+        await user.findOne( { "username": req.body.username.toLowerCase() }, "username password email courses", function (err, user) {
+            if (err) console.log(err);
+            if (user) {
                 const match = bcrypt.compare(req.body.password, user.password);
-                    if(match) {
-                        req.session.username = user.username;
-                        req.session.email = user.email;
-                        req.session.courses = user.courses;
-                        res.render('logged.ejs');
-                    }else {
-                        res.render('notlogged.ejs');
-                    };
-             }  else {
+                if(match) {
+                    req.session.username = user.username;
+                    req.session.email = user.email;
+                    req.session.courses = user.courses;
+                    res.render('logged.ejs');
+                }else {
+                    res.render('notlogged.ejs');
+                };
+            } else {
                 res.render('notlogged.ejs');
              }
-            }); 
-        });
-    };
+        }
+    )}
     checkUser(req.body);
 });
         
@@ -138,8 +144,7 @@ app.get("/profile/message", (req, res) => {
 });
 
 app.post("/delete", async (req, res) => {
-    await mongoose.connect(uri, options)
-    .then(async () => { await user.deleteOne({ username: req.session.username }, function(err) {
+    await user.deleteOne({ username: req.session.username }, function(err) {
         if (!err) {
             res.redirect('/logout');
         }
@@ -147,12 +152,11 @@ app.post("/delete", async (req, res) => {
             res.redirect('/profile');
         }
     });
-    });
 });
 
+
 app.post("/email", async (req, res) => {
-    await mongoose.connect(uri, options)
-    .then(async () => { await user.findOne({ username: req.session.username }, function(err, user) {
+        await user.findOne({ username: req.session.username }, function(err, user) {
         if (!err) {
             user.email = req.body.email;
             user.save();
@@ -163,26 +167,29 @@ app.post("/email", async (req, res) => {
             res.redirect('/profile');
         }
     });
-    });
 });
 
-app.get("/profile/enroll", (req, res) => {
-    res.render('enroll.ejs')
+
+app.get("/profile/enroll", async (req, res) => {
+    await courseList.findById( "5c71d4291c9d440000b4a556", function (err, list) {
+        if (err) console.log(err);
+        if (list) {
+            res.render('enroll.ejs', list);
+        };
+    });
 });
 
 app.post("/enroll", async (req, res) => {
     //console.log(req.body);
-    await mongoose.connect(uri, options)
-        .then(async () => { await user.findOne( { "username": req.session.username }, "courses", function (err, user) {
-                if (err) console.log(err);
-                if (user) {
-                    user.courses= [req.body.lit, req.body.tech, req.body.psych];
-                    user.save();
-                    req.session.courses = [req.body.lit, req.body.tech, req.body.psych];
-                    res.redirect('/profile');
-                }
-            });
-        });
+    await user.findOne( { "username": req.session.username }, "courses", function (err, user) {
+        if (err) console.log(err);
+        if (user) {
+            user.courses= [req.body.lit, req.body.tech, req.body.psych];
+            user.save();
+            req.session.courses = [req.body.lit, req.body.tech, req.body.psych];
+            res.redirect('/profile');
+            }
+    });
 });
 
 //User requests a page that doesn't exist:
@@ -194,3 +201,4 @@ app.get('*', function(req, res){
 //Server start:
 console.log("Listening port " + PORT);
 app.listen(PORT);
+mongoose.connect(uri, options);
