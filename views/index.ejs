@@ -1,51 +1,5 @@
 <% include ../partials/head %>
     <body id="main">
       <% include ../partials/nav %>
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-5 col-xl-5 mx-auto">
-              <div class="card card-signin flex-row my-5">
-                <div class="card-body" id="card">
-                  <h5 class="card-title text-center">Register</h5>
-                  <form class="form-signin" method="POST" action="/register">
-                    <div class="form-label-group">
-                      <input type="text" id="inputUserame" class="form-control" placeholder="Username" autocomplete="username" name="username" pattern="^[a-z0-9]{5,15}$" title="Usernames may only contain letters and numbers and must be between 5 and 15 characters" required autofocus>
-                      <label for="inputUserame">Username</label>
-                    </div>
-                    <hr>
-                    <div class="form-label-group">
-                      <input type="email" id="inputEmail" class="form-control" placeholder="E-mail address" name="email" required>
-                      <label for="inputEmail">E-mail address</label>
-                    </div>
-                    
-                    <hr>
-      
-                    <div class="form-label-group">
-                      <input type="password" id="inputPassword" class="form-control" placeholder="Password" autocomplete="current-password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Password must contain at least one number, one uppercase and lowercase letter, and at least 8 or more characters" name="password" required>
-                      <label for="inputPassword">Password</label>
-                    </div>
-                    <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>
-                    <a class="d-block text-center mt-2 small text-primary" id='swapper'>Sign In</a>  
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <footer id="sticky-footer" class="py-4 bg-primary fixed-bottom">
-            <div class="alert alert-light alert-dismissible fade show position-absolute text-center col-12" id="notice">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <strong>Notice:</strong> This site uses cookies. By continuing to browse the site, you are agreeing to our use of cookies. <a target="_blank" href="https://cookiesandyou.com/" class="alert-link">Find out more</a>.
-            </div>
-            <div class="container text-center">
-              <a href="https://github.com/Miggoh/userRegisterTest" class="nounderline text-white-50" target="_blank"><small>Github</small></a>
-            </div>
-        </footer>
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <script src="client.js"></script>
-    </body>
-</html>
+      <% include ../partials/main %>
+        

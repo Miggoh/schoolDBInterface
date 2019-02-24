@@ -58,7 +58,6 @@ html {
   
   body {
     height: 100%;
-    background: linear-gradient(to bottom, #94c4f7, rgb(255, 255, 255)),
   }
   
   #main {
@@ -216,7 +215,7 @@ html {
 
 /* 404 */
 
- #error {
+ #notfound {
     background-image: url('/images/page_not_found.svg');
     background-position: top;
     background-attachment: fixed;
@@ -224,7 +223,16 @@ html {
     background-size: 50rem 50rem;
  }
 
- /* Login error */
+/* Generic error */
+#error {
+  background-image: url('/images/warning.svg');
+  background-position: top;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: 45rem 45rem;
+}
+
+ /* Access error */
 
  #credentials {
   background-image: url('/images/authentication.svg');

@@ -28,6 +28,12 @@
                   </div>
                 </div>
               </div>
+              <div class="alert alert-primary alert-dismissible position-absolute w-100 fade show text-center <%= profileMessage %>" role="alert">
+                  <strong>Success!</strong> Your message has been delivered!
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>  
             <% include ../partials/footer %>
         </body>
 </html>
