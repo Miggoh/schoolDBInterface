@@ -272,3 +272,10 @@ html {
   background-repeat: no-repeat;
   background-size: 50rem 50rem;
  }
+
+ /* Removing the background image and making the containers fill the entire screen on mobile devices: */
+ @media (max-width:  768px) {
+  #enroll, #message, #profile, #credentials, #error, #notfound, #registered, #logged, #main  {background-image: none}
+  #profile-card {width: 100%!important; float: none!important; margin: 0!important;}
+ }
+ 

@@ -150,7 +150,7 @@ app.get("/profile", (req, res) => {
 
 //Logout through nav:
 app.get("/logout", (req, res) => {
-    req.session.regenerate();
+    req.session.destroy();
     res.render('loggedout.ejs');
 });
 
