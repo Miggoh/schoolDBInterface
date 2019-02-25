@@ -6,30 +6,30 @@
             <div class="container w-50 float-left ml-5" id="profile-card">
                 <div class="card border-0 shadow my-5">
                   <div class="card-body p-5">
-                    <h1 class="font-weight-light"><%= username %>'s profile</h1>
+                    <h1 class="font-weight-light"><i class="fas fa-user-circle"></i> <%= username %>'s profile</h1>
                     <hr>
-                    <p class="lead">This is your personal profile. Only you can see this page.</p>
-                    <p class="lead">Your e-mail address is: <%= email %></p><button type="button" data-toggle="modal" data-target="#emailModal" class="btn btn-primary btn-s ml-2 mb-2">Update e-mail</button>
+                    <p class="lead"><i class="fas fa-lock"></i> This is your personal profile. Only you can see this page.</p>
+                    <p class="lead"><i class="fas fa-at"></i> Your e-mail address is: <%= email %></p><button type="button" data-toggle="modal" data-target="#emailModal" class="btn btn-primary btn-s ml-2 mb-2"><i class="fas fa-edit"></i> Update e-mail</button>
                     <hr>
                     <h4 class="font-weight-light">Profile actions:</h4>
-                    <a href="/profile/enroll"><button type="button" class="btn btn-primary btn-xl m-2">Enroll on a course</button></a>
-                    <a href="/profile/message"><button type="button" class="btn btn-primary btn-xl m-2">Send a message to a teacher</button></a>
+                    <a href="/profile/enroll"><button type="button" class="btn btn-primary btn-xl m-2"><i class="fas fa-calendar-plus"></i> Enroll on a course</button></a>
+                    <a href="/profile/message"><button type="button" class="btn btn-primary btn-xl m-2"><i class="fas fa-envelope"></i> Send a message to a teacher</button></a>
                     <hr>
                     <h4 class="font-weight-light">Your courses:</h4>
                     <div style="height: 1rem"></div>
                     <ul class="list-group">
                     <% for(let i = 0; i < courses.length; i++) { %>
-                      <li class="list-group-item list-group-item-light"><%= courses[i] %></li>
+                      <li class="list-group-item list-group-item-light"><i class="fas fa-chalkboard-teacher"></i> <%= courses[i] %></li>
                      <% } %>
                     </ul>
                     <div style="height: 1rem"></div>
                     <p class="lead mb-2">Want to delete your account?</p>
-                    <button type="button" class="btn btn-danger btn-s" data-toggle="modal" data-target="#deleteModal">Delete</button>
+                    <button type="button" class="btn btn-danger btn-s" data-toggle="modal" data-target="#deleteModal"><i class="fas fa-exclamation-triangle"></i> Delete</button>
                   </div>
                 </div>
               </div>
               <div class="alert alert-primary alert-dismissible position-absolute w-100 fade show text-center <%= profileMessage %>" role="alert">
-                  <strong>Success!</strong> Your message has been delivered!
+                  <strong><i class="fas fa-check-circle"></i> Success!</strong> Your message has been delivered!
                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                   </button>

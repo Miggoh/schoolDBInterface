@@ -4,11 +4,11 @@
             <div class="container w-50 float-right mr-5" id="profile-card">
                 <div class="card border-0 shadow my-5">
                   <div class="card-body p-5">
-                    <h1 class="card-title text-center font-weight-light">Enroll on a course</h1>
+                    <h1 class="card-title text-center font-weight-light"><i class="fas fa-calendar-plus"></i> Enroll on a course</h1>
                         <form method="POST" action="/enroll">
                         <hr>
-                        <p class="lead">Select the courses you want to apply for. You must select one course per subject.</p>
-                        <p class="lead pl-4">Literature and Language</p>
+                        <p class="lead"><i class="fas fa-info-circle"></i> Select the courses you want to apply for. You must select one course per subject.</p>
+                        <p class="lead pl-2"><i class="fas fa-book"></i> Literature and Language</p>
                         <% for(let i = 0; i < lit.length; i++) { %>
                           <div class="form-check">
                             <input class="form-check-input" type="radio" name="lit" id="<%= lit[i] %>" value="<%= lit[i] %>">
@@ -18,7 +18,7 @@
                           </div>
                         <% } %>
                           <br>
-                        <p class="lead pl-4">Technology</p>
+                        <p class="lead pl-2"><i class="fas fa-atom"></i> Technology</p>
                         <% for(let i = 0; i < tech.length; i++) { %>
                           <div class="form-check">
                             <input class="form-check-input" type="radio" name="tech" id="<%= tech[i] %>" value="<%= tech[i] %>">
@@ -28,7 +28,7 @@
                           </div>
                         <% } %>
                           <br>
-                        <p class="lead pl-4">Sociology, Psychology and Anthropology</p>
+                        <p class="lead pl-2"><i class="fas fa-brain"></i> Sociology, Psychology and Anthropology</p>
                         <% for(let i = 0; i < psych.length; i++) { %>
                             <div class="form-check">
                               <input class="form-check-input" type="radio" name="psych" id="<%= psych[i] %>" value="<%= psych[i] %>">
@@ -39,7 +39,7 @@
                         <% } %>
                             <hr>
                             <p class="lead">You can change your choices during the application period.</p>
-                            <button class="btn btn-s btn-primary text-uppercase" type="submit">Confirm selection</button>
+                            <button class="btn btn-s btn-primary text-uppercase" type="submit"><i class="fas fa-calendar-check"></i> Confirm selection</button>
                         </form>
                   </div>
                 </div>

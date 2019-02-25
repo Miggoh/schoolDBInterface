@@ -6,23 +6,10 @@
               <div class="col-lg-5 col-xl-5 mx-auto">
                 <div class="card card-signin flex-row my-5">
                   <div class="card-body" id="card">
-                      <h5 class="card-title text-center">Invalid credentials!</h5>
+                      <h5 class="card-title text-center"><i class="far fa-times-circle"></i> Invalid credentials!</h5>
                       <hr>
                       <p class="card-title text-center">You must log in before accessing this page:</p>
-                      <form class="form-signin" method="POST" action="/login">
-                        <div class="form-label-group">
-                          <input type="text" id="inputUserame" class="form-control" placeholder="Username" name="username" required autofocus>
-                          <label for="inputUserame">Username</label>
-                        </div>
-                        
-                        <hr>
-          
-                        <div class="form-label-group">
-                          <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required>
-                          <label for="inputPassword">Password</label>
-                        </div>
-                        <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Login</button>
-                      </form>
+                      <% include ../partials/login %>
                   </div>
                 </div>
               </div>
