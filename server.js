@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 const auth = require('./auth.js');
 const profile = require('./profile.js')
 const mongoose = require('mongoose'); //MongoDB object modeling
-const uri = "mongodb+srv://schoolAdmin:TMTFDU533XGL2Q6F@schooldb-zgp5j.mongodb.net"; //Connection url for database
+const uri = process.env.MONGODB_URI; //Connection url for database
 const options = { //arguments for Mongoose connection
     dbName: "schoolDB",
     useNewUrlParser: true,

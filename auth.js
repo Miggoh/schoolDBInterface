@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt'); //Password encryption
 const validator = require('validator'); //Form data validation and sanitization
 const user = require('./user.js') //schema for mongoose
 const MongoDBStore = require('connect-mongodb-session')(session); //Stores sessions to database
-const uri = "removed from github"; //Connection url for database
+const uri = process.env.MONGODB_URI; //Connection url for database
 
 //MongoDBStore config:
 const store = new MongoDBStore({
