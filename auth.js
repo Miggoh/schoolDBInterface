@@ -66,10 +66,10 @@ router.post("/register", async (req, res) => {
 //User logs in:
 router.post("/login", (req, res) => {
     const checkUser = async (body) => {
-        await user.findOne( { "username": req.body.username.toLowerCase() }, "username password email courses", function (err, user) { //Checking if user exists and fetching data.
+        await user.findOne( { "username": req.body.username.toLowerCase() }, "username password email courses", async function (err, user) { //Checking if user exists and fetching data.
             if (err) console.log(err);
             if (user) {
-                const match = bcrypt.compare(req.body.password, user.password); //Checking if the password entered matches the hash stored in database.
+                const match = await bcrypt.compare(req.body.password, user.password); //Checking if the password entered matches the hash stored in database.
                 if(match) { //If yes, logging the user in and setting session values.
                     req.session.username = user.username;
                     req.session.email = user.email;
