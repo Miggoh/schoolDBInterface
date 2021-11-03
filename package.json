@@ -19,6 +19,6 @@
     "mongoose": "^5.4.14",
     "session-file-store": "^1.2.0",
     "uuid": "^3.3.2",
-    "validator": "^10.11.0"
+    "validator": "^13.7.0"
   }
 }
